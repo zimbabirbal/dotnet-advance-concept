@@ -16,7 +16,7 @@ namespace Advance_dotnet_concept.CommonHelpers.ExtensionMethodHelper
             return serializeString;
         }
 
-        public static string DumpConsole<T>(this T obj)
+        public static string Dump<T>(this T obj)
         {
             string tempString = $"ThreadId:{Thread.CurrentThread.ManagedThreadId} " + (obj as string != null ? obj.ToString() : "");
             Console.WriteLine(tempString);
