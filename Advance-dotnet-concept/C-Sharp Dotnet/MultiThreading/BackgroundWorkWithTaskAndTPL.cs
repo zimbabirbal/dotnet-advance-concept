@@ -26,7 +26,28 @@ namespace Advance_dotnet_concept.C_Sharp_Dotnet.MultiThreading
             //TPL provides a handy method for launching parallel tasks and essentially,
             //turning your .NET app into a multi-threaded application
             //Its a wrapper or higher-level abstraction over threading
-            ParallelInvoke();
+            //ParallelInvoke();
+
+            //TPL Parallel loops
+            //We need to use parallel loops such as Parallel.For and Parallel.ForEach method to speed up operations where an expensive,
+            //independent operation needs to be performed for each input of a sequence.
+            //This may open the possibility of synchronization problems, becareful
+            ParallelForLoopsTest();
+        }
+
+        private void ParallelForLoopsTest()
+        {
+            var listInteger = Enumerable.Range(1,100).ToList();
+            var options = new ParallelOptions() { MaxDegreeOfParallelism = 2 };
+
+            Parallel.For(0, 10, i =>
+            {
+                CalculateMandelbrot();
+            });
+
+            Parallel.ForEach(listInteger, options, i => {
+                CalculateMandelbrot();
+            });
 
         }
 
