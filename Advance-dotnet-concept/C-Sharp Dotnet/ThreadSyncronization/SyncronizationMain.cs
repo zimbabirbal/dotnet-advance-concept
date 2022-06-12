@@ -4,16 +4,28 @@
     {
         public static void Main()
         {
-            var a = new LockAndMonitor();
-            Parallel.For(0, 5, i =>
-             {
-                 a.MonitorDoWorkThreadSafe();
-             });
+            var lockAndMonitor = new LockAndMonitor();
+            //Parallel.For(0, 5, i =>
+            // {
+            //     lockAndMonitor.MonitorDoWorkThreadSafe();
+            // });
 
             //Parallel.For(0, 5, i =>
             //{
-            //    a.LockDoWorkThreadSafe();
+            //    lockAndMonitor.LockDoWorkThreadSafe();
             //});
+
+            var mutexAndSemaphore = new MutexAndSemaphore();
+            //Parallel.For(0, 5, i =>
+            //{
+            //    mutexAndSemaphore.MutexThreadSafe();
+            //});
+
+            Parallel.For(0, 5, i =>
+            {
+                mutexAndSemaphore.SemaphoreDoWork();
+            });
+
         }
     }
 }
