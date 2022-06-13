@@ -21,10 +21,12 @@
             //    mutexAndSemaphore.MutexThreadSafe();
             //});
 
-            Parallel.For(0, 5, i =>
-            {
-                mutexAndSemaphore.SemaphoreDoWork();
-            });
+            //Parallel.For(0, 5, i =>
+            //{
+            //    mutexAndSemaphore.SemaphoreDoWork();
+            //});
+
+            mutexAndSemaphore.SemaphoreSlimDoWork();
 
         }
     }
